@@ -38,15 +38,12 @@ void printArray(int[] array)
 
 int findSumOfNumbersInOddPositions(int[] array)
 {
-    int sumOfNumbersInOddPositions = 0;
-    for (int i = 0; i < array.Length; i++)
+    int sum = 0;
+    for (int i = 1; i < array.Length; i += 2)
     {
-        if (i % 2 != 0)
-        {
-            sumOfNumbersInOddPositions = sumOfNumbersInOddPositions + array[i];
-        }
+        sum = sum + array[i];
     }
-    return sumOfNumbersInOddPositions;
+    return sum;
 }
 
 int length = getUserData("Введите длину массива: ");
