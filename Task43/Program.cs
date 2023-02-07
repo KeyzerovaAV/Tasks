@@ -22,23 +22,17 @@ if (k1 == k2)
 {
     Console.WriteLine("Прямые параллельны друг другу");
 }
+
 else
 {
-    double findX(double b1, double k1, double b2, double k2)
+    string findPointOfIntersection(double b1, double k1, double b2, double k2)
     {
         double x = Math.Round(((b2 - b1) / (k1 - k2)), 2);
-        return x;
-    }
-
-    double findY(double b1, double k1, double x)
-    {
         double y = Math.Round((k1 * x + b1), 2);
-        return y;
+        string pointOfIntersection = ($"Точка пересечения прямых: ({x}; {y})");
+        return pointOfIntersection;
     }
-
-
-    double x = findX(b1, k1, b2, k2);
-    double y = findY(b1, k1, x);
-
-    Console.WriteLine($"Точка пересечения прямых: ({x}; {y})");
+    
+    string pointOfIntersection = findPointOfIntersection(b1, k1, b2, k2);
+    Console.WriteLine(pointOfIntersection);
 }
