@@ -18,21 +18,25 @@ double k1 = getUserData("Введите k1: ");
 double b2 = getUserData("Введите b2: ");
 double k2 = getUserData("Введите k2: ");
 
-if (k1 == k2)
+double findX(double b1, double k1, double b2, double k2)
 {
-    Console.WriteLine("Прямые параллельны друг другу");
+    double x = Math.Round(((b2 - b1) / (k1 - k2)), 2);
+    return x;
 }
+double x = findX(b1, k1, b2, k2);
 
+double findY(double b1, double k1)
+{
+    double y = Math.Round((k1 * x + b1), 2);
+    return y;
+}
+double y = findY(b1, k1);
+
+if (k1 != k2)
+{
+    Console.WriteLine($"Точка пересечения прямых: ({x}; {y})");
+}
 else
 {
-    string findPointOfIntersection(double b1, double k1, double b2, double k2)
-    {
-        double x = Math.Round(((b2 - b1) / (k1 - k2)), 2);
-        double y = Math.Round((k1 * x + b1), 2);
-        string pointOfIntersection = ($"Точка пересечения прямых: ({x}; {y})");
-        return pointOfIntersection;
-    }
-    
-    string pointOfIntersection = findPointOfIntersection(b1, k1, b2, k2);
-    Console.WriteLine(pointOfIntersection);
+    Console.WriteLine("Прямые параллельны друг другу");
 }
