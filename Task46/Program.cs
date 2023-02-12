@@ -21,13 +21,13 @@ void printInColor(string data)
     Console.ResetColor();
 }
 
-double[,] get2DArray(int colLength, int rowLength, int start, int end)
+double[,] get2DArray(int rowLength, int colLength, int start, int end)
 {
-    double[,] array = new double[colLength, rowLength];
+    double[,] array = new double[rowLength, colLength];
     int divisor = 100;
-    for (int i = 0; i < colLength; i++)
+    for (int i = 0; i < rowLength; i++)
     {
-        for (int j = 0; j < rowLength; j++)
+        for (int j = 0; j < colLength; j++)
         {
             array[i, j] = new Random().Next(start * divisor, (end + 1) * divisor) / (divisor + 0.0);
         }
