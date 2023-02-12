@@ -22,12 +22,12 @@ void printInColor(string data)
     Console.ResetColor();
 }
 
-int[,] get2DArray(int colLength, int rowLength)
+int[,] get2DArray(int rowLength, int colLength)
 {
-    int[,] array = new int[colLength, rowLength];
-    for (int i = 0; i < colLength; i++)
+    int[,] array = new int[rowLength, colLength];
+    for (int i = 0; i < rowLength; i++)
     {
-        for (int j = 0; j < rowLength; j++)
+        for (int j = 0; j < colLength; j++)
         {
             array[i, j] = i + j;
         }
