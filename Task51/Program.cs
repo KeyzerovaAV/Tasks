@@ -7,16 +7,14 @@ Console.Clear();
 
 int getUserData(string message)
 {
-    Console.ForegroundColor = ConsoleColor.DarkGreen;
-    Console.Write(message);
-    Console.ResetColor();
+    printInColor(message, ConsoleColor.DarkGreen);
     int userData = int.Parse(Console.ReadLine()!);
     return userData;
 }
 
-void printInColor(string data)
+void printInColor(string data, ConsoleColor color)
 {
-    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+    Console.ForegroundColor = color;
     Console.Write(data);
     Console.ResetColor();
 }
@@ -39,20 +37,18 @@ void print2DArray(int[,] array)
     Console.Write("\t");
     for (int j = 0; j < array.GetLength(1); j++)
     {
-        printInColor(j + "\t");
+        printInColor(j + "\t", ConsoleColor.DarkMagenta);
     }
     Console.WriteLine();
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        printInColor(i + "\t");
+        printInColor(i + "\t", ConsoleColor.DarkMagenta);
         for (int j = 0; j < array.GetLength(1); j++)
         {
             if (i == j)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(array[i, j] + "\t");
-                Console.ResetColor();
+                printInColor(array[i, j] + "\t", ConsoleColor.Yellow);
             }
             else
             {
@@ -84,7 +80,4 @@ int colLength = getUserData("Введите количество столбцо�
 int[,] array = get2DArray(rowLength, colLength, 0, 100);
 print2DArray(array);
 int sumOfDiagonalElements = findSumOfDiagonalElements(array);
-
-Console.ForegroundColor = ConsoleColor.DarkCyan;
-Console.WriteLine($"Сумма элементов главной диагонали = {sumOfDiagonalElements}");
-Console.ResetColor();
+printInColor($"Сумма элементов главной диагонали = {sumOfDiagonalElements}", ConsoleColor.Cyan);
