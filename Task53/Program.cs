@@ -5,12 +5,12 @@
 
 Console.Clear();
 
-int[,] generate2DArray(int rowLength, int colLength, int start, int end)
+int[,] generate2DArray(int rows, int columns, int start, int end)
 {
-    int[,] array = new int[rowLength, colLength];
-    for (int i = 0; i < rowLength; i++)
+    int[,] array = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < colLength; j++)
+        for (int j = 0; j < columns; j++)
         {
             array[i, j] = new Random().Next(start, end + 1);
         }
