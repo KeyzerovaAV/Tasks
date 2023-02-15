@@ -19,12 +19,12 @@ void printInColor(string data, ConsoleColor color)
     Console.ResetColor();
 }
 
-int[,] get2DArray(int rowLength, int colLength, int start, int end)
+int[,] get2DArray(int rows, int columns, int start, int end)
 {
-    int[,] array = new int[rowLength, colLength];
-    for (int i = 0; i < rowLength; i++)
+    int[,] array = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < colLength; j++)
+        for (int j = 0; j < columns; j++)
         {
             array[i, j] = new Random().Next(start, end + 1);
         }
@@ -68,14 +68,14 @@ int findElementInArray(int[,] array, int m, int n)
     return element;
 }
 
-int rowLength = getUserData("Введите количество строк: ");
-int colLength = getUserData("Введите количество столбцов: ");
-int[,] array = get2DArray(rowLength, colLength, 0, 99);
+int rows = getUserData("Введите количество строк: ");
+int columns = getUserData("Введите количество столбцов: ");
+int[,] array = get2DArray(rows, columns, 0, 99);
 print2DArray(array);
 int m = getUserData("Введите номер строки: ");
 int n = getUserData("Введите номер столбца: ");
 
-if (m >= rowLength || n >= colLength)
+if (m >= rows || n >= columns)
 {
     printInColor($"Элемента на позиции [{m}, {n}] в массиве нет", ConsoleColor.Red);
 }
@@ -85,5 +85,5 @@ else
     printInColor($"Элемент на позиции ", ConsoleColor.Cyan);
     printInColor($"[{m}, {n}] ", ConsoleColor.DarkMagenta);
     printInColor($"имеет значение ", ConsoleColor.Cyan);
-    printInColor($"{element}", ConsoleColor.Yellow);
+    printInColor($"{element}", ConsoleColor.Red);
 }
