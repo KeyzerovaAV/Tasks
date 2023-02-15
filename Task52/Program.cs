@@ -19,12 +19,12 @@ void printInColor(string data, ConsoleColor color)
     Console.ResetColor();
 }
 
-int[,] get2DArray(int rowLength, int colLength, int start, int end)
+int[,] get2DArray(int rows, int columns, int start, int end)
 {
-    int[,] array = new int[rowLength, colLength];
-    for (int i = 0; i < rowLength; i++)
+    int[,] array = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < colLength; j++)
+        for (int j = 0; j < columns; j++)
         {
             array[i, j] = new Random().Next(start, end + 1);
         }
@@ -37,13 +37,13 @@ void print2DArray(int[,] array)
     Console.Write("\t");
     for (int j = 0; j < array.GetLength(1); j++)
     {
-        printInColor(j + "\t", ConsoleColor.Cyan);
+        printInColor(j + "\t", ConsoleColor.DarkMagenta);
     }
     Console.WriteLine();
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        printInColor(i + "\t", ConsoleColor.Cyan);
+        printInColor(i + "\t", ConsoleColor.DarkMagenta);
         for (int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write(array[i, j] + "\t");
@@ -65,18 +65,18 @@ void printRangeOfAverages(int[,] array)
         }
         if (j == array.GetLength(1) - 1)
         {
-            printInColor($"{average}", ConsoleColor.Red);
+            printInColor($"{average}", ConsoleColor.Yellow);
         }
         else
         {
-            printInColor($"{average}; ", ConsoleColor.Red);
+            printInColor($"{average}; ", ConsoleColor.Yellow);
         }
     }
 }
 
-int rowLength = getUserData("Введите количество строк: ");
-int colLength = getUserData("Введите количество столбцов: ");
-int[,] array = get2DArray(rowLength, colLength, 0, 100);
+int rows = getUserData("Введите количество строк: ");
+int columns = getUserData("Введите количество столбцов: ");
+int[,] array = get2DArray(rows, columns, 0, 100);
 print2DArray(array);
 Console.WriteLine();
 printRangeOfAverages(array);
