@@ -19,12 +19,12 @@ void printInColor(string data, ConsoleColor color)
     Console.ResetColor();
 }
 
-int[,] get2DArray(int rowLength, int colLength, int start, int end)
+int[,] get2DArray(int rows, int columns, int start, int end)
 {
-    int[,] array = new int[rowLength, colLength];
-    for (int i = 0; i < rowLength; i++)
+    int[,] array = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < colLength; j++)
+        for (int j = 0; j < columns; j++)
         {
             array[i, j] = new Random().Next(start, end + 1);
         }
@@ -48,7 +48,7 @@ void print2DArray(int[,] array)
         {
             if (i == j)
             {
-                printInColor(array[i, j] + "\t", ConsoleColor.Yellow);
+                printInColor(array[i, j] + "\t", ConsoleColor.Red);
             }
             else
             {
@@ -75,9 +75,9 @@ int findSumOfDiagonalElements(int[,] array)
     return sum;
 }
 
-int rowLength = getUserData("Введите количество строк: ");
-int colLength = getUserData("Введите количество столбцов: ");
-int[,] array = get2DArray(rowLength, colLength, 0, 100);
+int rows = getUserData("Введите количество строк: ");
+int columns = getUserData("Введите количество столбцов: ");
+int[,] array = get2DArray(rows, columns, 0, 100);
 print2DArray(array);
 int sumOfDiagonalElements = findSumOfDiagonalElements(array);
 printInColor($"Сумма элементов главной диагонали = {sumOfDiagonalElements}", ConsoleColor.Cyan);
