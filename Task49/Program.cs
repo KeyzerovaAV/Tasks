@@ -21,12 +21,12 @@ void printInColor(string data)
     Console.ResetColor();
 }
 
-int[,] get2DArray(int rowLength, int colLength, int start, int end)
+int[,] get2DArray(int rows, int columns, int start, int end)
 {
-    int[,] array = new int[rowLength, colLength];
-    for (int i = 0; i < rowLength; i++)
+    int[,] array = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
     {
-        for (int j = 0; j < colLength; j++)
+        for (int j = 0; j < columns; j++)
         {
             array[i, j] = new Random().Next(start, end + 1);
         }
@@ -66,9 +66,9 @@ int[,] replaceBySquares(int[,] array)
     return array;
 }
 
-int rowLength = getUserData("Введите количество строк: ");
-int colLength = getUserData("Введите количество столбцов: ");
-int[,] array = get2DArray(rowLength, colLength, 0, 10);
+int rows = getUserData("Введите количество строк: ");
+int columns = getUserData("Введите количество столбцов: ");
+int[,] array = get2DArray(rows, columns, 0, 10);
 print2DArray(array);
 Console.WriteLine();
 int[,] newArray = replaceBySquares(array);
