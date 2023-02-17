@@ -50,25 +50,25 @@ void print2DArray(int[,] array)
     Console.WriteLine("---------------------------------");
 }
 
-int[,] multiplyArrays(int[,] array1, int[,] array2, int rows, int columns)
+int[,] multiplyArrays(int[,] matrixA, int[,] matrixB, int rows, int columns)
 {
-    int[,] array3 = new int[rows, columns];
-    for (int i = 0; i < array1.GetLength(0); i++)
+    int[,] matrixAB = new int[rows, columns];
+    for (int i = 0; i < matrixA.GetLength(0); i++)
     {
-        for (int j = 0; j < array2.GetLength(1); j++)
+        for (int j = 0; j < matrixB.GetLength(1); j++)
         {
-            for (int k = 0; k < array3.GetLength(0); k++)
+            for (int k = 0; k < matrixA.GetLength(1); k++)
             {
-                array3[i, j] += array1[i, k] * array2[k, j];
+                matrixAB[i, j] += matrixA[i, k] * matrixB[k, j];
             }
         }
     }
-    return array3;
+    return matrixAB;
 }
 
-int[,] array1 = generate2DArray(3, 3, 0, 9);
-print2DArray(array1);
-int[,] array2 = generate2DArray(3, 3, 0, 9);
-print2DArray(array2);
-int[,] array3 = multiplyArrays(array1, array2, 3, 3);
-print2DArray(array3);
+int[,] matrixA = generate2DArray(3, 3, 0, 9);
+print2DArray(matrixA);
+int[,] matrixB = generate2DArray(3, 3, 0, 9);
+print2DArray(matrixB);
+int[,] matrixAB = multiplyArrays(matrixA, matrixB, 3, 3);
+print2DArray(matrixAB);
