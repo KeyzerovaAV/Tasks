@@ -54,9 +54,9 @@ int[,] orderRowsInMatrix(int[,] matrix, int columns)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int sortedSize = 0; sortedSize < (columns - 1); sortedSize++)
+        for (int sortedLength = 0; sortedLength < (columns - 1); sortedLength++)
         {
-            for (int j = 0; j < matrix.GetLength(1) - 1 - sortedSize; j++)
+            for (int j = 0; j < (matrix.GetLength(1) - 1 - sortedLength); j++)
             {
                 if (matrix[i, j] < matrix[i, j + 1])
                 {
