@@ -85,5 +85,5 @@ else
     printInColor($"Элемент на позиции ", ConsoleColor.Cyan);
     printInColor($"[{m}, {n}] ", ConsoleColor.DarkMagenta);
     printInColor($"имеет значение ", ConsoleColor.Cyan);
-    printInColor($"{element}", ConsoleColor.Red);
+    printInColor($"{element}", ConsoleColor.Yellow);
 }
