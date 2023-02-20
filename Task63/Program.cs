@@ -5,6 +5,9 @@
 
 Console.Clear();
 
+int userNumber = getUserData("Введите значение - границу ряда: ");
+printRange(userNumber);
+
 int getUserData(string message)
 {
     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -13,8 +16,6 @@ int getUserData(string message)
     int userData = int.Parse(Console.ReadLine()!);
     return userData;
 }
-
-int userNumber = getUserData("Введите значение - границу ряда: ");
 
 void printRange(int N)
 {
@@ -26,5 +27,3 @@ void printRange(int N)
     if (N == userNumber) Console.Write(N);
     else Console.Write(N + ", ");
 }
-
-printRange(userNumber);
