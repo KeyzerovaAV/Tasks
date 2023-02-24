@@ -8,14 +8,21 @@ Console.Clear();
 Console.Write("Введите число: ");
 int N = int.Parse(Console.ReadLine()!);
 
-for (int number = 1; number <= N; number++)
+string getRangeOfCubes(int N)
 {
-    if (number < N)
+    string rangeOfCubes = String.Empty;
+    for (int number = 1; number <= N; number++)
     {
-        Console.Write($"{Math.Pow(number, 3)}, ");
+        if (number < N)
+        {
+            Console.Write($"{Math.Pow(number, 3)}, ");
+        }
+        else
+        {
+            Console.Write($"{Math.Pow(number, 3)} ");
+        }
     }
-    else
-    {
-        Console.Write($"{Math.Pow(number, 3)} ");
-    }
+    return rangeOfCubes;
 }
+
+getRangeOfCubes(N);
